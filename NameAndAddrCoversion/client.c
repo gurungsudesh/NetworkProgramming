@@ -27,7 +27,7 @@ int main()
     sa.sin_port = htons(5678);
     //sa.sin_addr.s_addr =  yo kaam hamile tala ko function bata assign gareko
 
-    int res = inet_pton(AF_INET, "192.168.100.2", &sa.sin_addr);
+    int res = inet_pton(AF_INET, "127.0.0.1", &sa.sin_addr);
     if (res <= 0)
     {
         perror("IP address conversion failed.");
@@ -43,20 +43,6 @@ int main()
         exit(EXIT_FAILURE);
     }
     printf("Connection successful \n");
-
-    int size = 1000;
-    char buffer[size];
-    memset(buffer, 0, size);
-
-    sprintf(buffer, "This is the message sent by client.\n");
-    int s_len = write(client_fd, buffer, strlen(buffer));
-
-    //read is a blocking statement as accept
-    read(client_fd, buffer, size); //array pass garda sadhai size ni pathaune
-
-    printf("Message echoed back from server: %s\n", buffer);
     close(client_fd);
-
-    
     return EXIT_SUCCESS;
 }

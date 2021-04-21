@@ -72,7 +72,10 @@ int main(void)
     int i;
     while (1)
     {
-       
+        /*
+       int select(int numfds, fd_set *readfds, fd_set *writefds,
+        fd_set *exceptfds, struct timeval *timeout);
+       */
         read_set = all_set;
         printf("Calling select function\n");
         if(select(max + 1, &read_set, NULL, NULL, &interval) == -1){

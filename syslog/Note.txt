@@ -1,0 +1,16 @@
+Emergency 8
+Altert  7
+critical 6
+error   5
+warning 4
+notice  3
+info    2
+debug   1
+
+-----------------------
+fcntl 
+iocntl
+
+journal ctrl -n 100 
+
+journal ctrl _PID = ....

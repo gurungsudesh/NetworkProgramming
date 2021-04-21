@@ -11,7 +11,7 @@ single server socket can be made concurrent as well using for loop
 #include <stdlib.h> //perror ko lagi
 #include <string.h> //memset ko lagi
 #include <unistd.h>
-#include <fcntl.h>
+#include <fcntl.h>//file control
 #include <errno.h>
 
 void handle_Client(int client_fd);

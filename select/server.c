@@ -18,6 +18,7 @@ int main(){
         perror("Cannot create a socket.\n");
         exit(EXIT_FAILURE);
     }
+    printf("s_fd: %d\n", s_fd);
     printf("Socket created successfully.!\n");
     struct sockaddr_in sa;
 
@@ -55,7 +56,12 @@ int main(){
     {
         
         read_set = all_set;
-        //FD_SETSIZE
+        //FD_SETSIZE = 1024 samma ko sockets fd check garcha
+
+        /*
+        int select(int numfds, fd_set *readfds, 
+        fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+        */
 
         if (select(FD_SETSIZE, &read_set, NULL, NULL, &interval) == -1)
         {
